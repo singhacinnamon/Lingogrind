@@ -1,7 +1,4 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+body {
     color: white;
     background-color: #38AFE9;
 }
@@ -10,22 +7,55 @@ h1 {
     color: #f7e557;
 }
 
-#logo {
-    font-size: 30px;
-    padding-top: 0px;
-    padding-bottom: 30px;
+p {
+    font-size: 20px;
+    width: 50%;
 }
 
-#main {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
+li {
+    display: inline;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar-nav .lefty {
+    margin-right: auto; /* Push this item to the far left */
+  }
+  
+  .navbar-nav .righty {
+    margin-left: auto; /* Push these items to the far right */
+  }
+
+  #nav-container {
+    background-color: #0482bf;
+    margin:0;
+  }
+
+#logo {
+    font-size: 30px;
 }
 
 #app {
     width: 100%;
     height: 100%;
-    display: flex;
+}
+
+#langcard {
+    width: 18rem; 
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.jumbotron {
+    color: white;
+    background-color: #38AFE9;
 }

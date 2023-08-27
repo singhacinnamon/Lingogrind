@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Th from "./Th";
-import Es from "./Es";
-import { BrowserRouter as Router, Routes, Route, Link, Redirect } from "react-router-dom";
+import LangCardSet from "./LangCardSet";
 
 export default class HomePage extends Component {
     constructor(props) {
@@ -10,15 +8,19 @@ export default class HomePage extends Component {
 
     render() {
         return (
-            <Router>
-                <Routes>
-                    <Route exact path="/" element={
-                        <p>This is the home page</p>
-                    } />
-                    <Route exact path="/es" element={ <Es /> } />
-                    <Route exact path="/th" element={ <Th /> } />
-                </Routes>
-            </Router>
+            <>
+            <div class="jumbotron text-center">
+                <center>
+                    <h1 class="title">Lingogrind</h1>
+                    <p>
+                    Learning a new language can be a daunting task, and each language presents its own unique challenges. 
+                    Lingogrind caters practice tools that enable mastery over specific skills integral to each language. 
+                    Pick a language down below to see what skill games are available!
+                    </p>
+                </center>
+            </div>
+            <LangCardSet />
+            </>
         );
     }
 }
