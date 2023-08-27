@@ -19,7 +19,9 @@ export default class HomePage extends Component {
                     </p>
                 </center>
             </div>
-            <LangCardSet />
+            <center>
+                <LangCardSet />
+            </center>
             </>
         );
     }
