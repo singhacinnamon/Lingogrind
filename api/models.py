@@ -8,3 +8,5 @@ class Lesson(models.Model):
     prio = models.IntegerField(default=100)
     # The name of a lesson as it is displayed on the list of lessons. 
     name = models.CharField(max_length=100, unique=True)
+    # The filename of the lesson
+    file = models.CharField(max_length=50, unique=True)

@@ -4,6 +4,7 @@ from rest_framework import generics
 from .serializers import LessonSerializer
 from .models import Lesson
 
+
 # Create your views here.
 def home(request):
     return HttpResponse("Hello")
