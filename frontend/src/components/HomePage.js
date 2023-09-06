@@ -11,11 +11,11 @@ export default class HomePage extends Component {
             <>
             <div class="jumbotron text-center">
                 <center>
-                    <h1 class="title">Lingogrind</h1>
+                    <h1 class="hometitle">Lingogrind</h1>
                     <p>
                     Learning a new language can be a daunting task, and each language presents its own unique challenges. 
-                    Lingogrind caters practice tools that enable mastery over specific skills integral to each language. 
-                    Pick a language down below to see what skill games are available!
+                    Lingogrind caters crash courses and practice tools to get you up and running in no time. 
+                    Pick a language down below to see available lessons!
                     </p>
                 </center>
             </div>

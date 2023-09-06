@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom"
 
 function LangCardSet() {
-    let langs = [{name:"Thai", abbr:"th"}, {name:"Spanish", abbr:"es"}]; //Move to homepage and pass as prop
+    let langs = [{name:"Thai", abbr:"th"}, {name:"Spanish", abbr:"es"}]; //TODO Move to homepage and pass as prop
     return (
         <>
         { langs.map(lang => (

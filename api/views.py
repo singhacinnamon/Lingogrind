@@ -15,6 +15,16 @@ class LessonView(generics.CreateAPIView):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
 
+class GetLesson(APIView):
+    serializer_class = LessonSerializer
+    lookup_url_kwarg = 'lang'
+
+    def get(self, request, format=None):
+        lang=request.GET.get(self.lookup_url_kwarg)
+        Lsns = Lesson.objects.filter(lang=lang).order_by("prio").values()
+        data = LessonSerializer(Lsns, many=True).data
+        return Response(data, status=status.HTTP_200_OK)
+
 class CreateLessonView(APIView):
     serializer_class = CreateLessonSerializer
     def post(self, request, format=None):

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import HomePage from "./HomePage";
-import Th from "./Th";
-import Es from "./Es";
 import { BrowserRouter as Router, Routes, Route, Link, Redirect } from "react-router-dom";
+import LessonList from "./LessonList";
+import Es from "./Es";
+import Th from "./Th";
+import EsGreetingsGratitudesEtc from "./lessons/EsGreetingsGratitudesEtc"
 
 export default class App extends Component {
     constructor(props) {
@@ -25,6 +27,7 @@ export default class App extends Component {
                     <Route index element={ <HomePage /> } />
                     <Route exact path="/es" element={ <Es /> } />
                     <Route exact path="/th" element={ <Th /> } />
+                    <Route exact path="/EsGreetingsGratitudesEtc" element={ <EsGreetingsGratitudesEtc /> } />
                 </Routes>
             </div>
         </Router>

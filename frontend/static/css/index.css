@@ -1,5 +1,4 @@
 body {
-    color: white;
     background-color: #38AFE9;
 }
 
@@ -9,7 +8,8 @@ h1 {
 
 p {
     font-size: 20px;
-    width: 50%;
+    width: 70%;
+    margin: auto;
 }
 
 li {
@@ -32,6 +32,7 @@ li {
   
   .navbar-nav .righty {
     margin-left: auto; /* Push these items to the far right */
+    color: white;
   }
 
   #nav-container {
@@ -58,4 +59,58 @@ li {
 .jumbotron {
     color: white;
     background-color: #38AFE9;
+}
+
+.list-group {
+    background-color: white;
+}
+
+.list-group-item {
+    color: gray;
+}
+
+.lesson {
+    background-color: white;
+    color: darkslategray;
+    margin: 0 auto;
+    text-align: center;
+    margin: auto;
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 3%;
+    padding: 2%;
+}
+
+.table {
+    color: darkslategray;
+    width: 70%;
+    margin: auto;
+}
+
+.note-content {
+    font-style: italic;
+    opacity: 60%;
+}
+
+.hometitle {
+    margin: auto;
+    text-align: center;
+    margin-top: 1%;
+}
+
+.rounded-lsn {
+    border-radius: 5rem;
+ }
+
+.quote {
+    font-style: italic;
+}
+
+.lp {
+    text-align: left;
+}
+
+.homeblurb {
+    width: 60%;
 }

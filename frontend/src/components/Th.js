@@ -1,11 +1,14 @@
-import React, { Component } from 'react';
+import LessonList from "./LessonList";
 
-export default class Th extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return <p>This is the Thai Lessons Page</p>
-    }
+function Th(props) {
+    return (
+        <>
+        <center>
+            <h1>Thai Lessons</h1>
+            <LessonList lang="th"></LessonList>
+        </center>
+        </>
+    )
 }
+
+export default Th;
