@@ -22,7 +22,7 @@ function LessonList(props) {
         <center>
         <ul className='list-group'>
             { data.map( (lsn) =>
-                <Link to={ "/"+ lsn.file }><li className='list-group-item'> { lsn.name } </li></Link>
+                <Link to={ "/"+ lsn.file }><li className='list-group-item'><b> { lsn.name } </b></li></Link>
             )}
         </ul>
         </center>

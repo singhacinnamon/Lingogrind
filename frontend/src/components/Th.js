@@ -4,7 +4,7 @@ function Th(props) {
     return (
         <>
         <center>
-            <h1>Thai Lessons</h1>
+            <h1 className="ctr title">Thai Lessons</h1>
             <LessonList lang="th"></LessonList>
         </center>
         </>

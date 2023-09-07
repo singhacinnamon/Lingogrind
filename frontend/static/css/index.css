@@ -16,6 +16,10 @@ li {
     display: inline;
 }
 
+.flex {
+    display: flex;
+}
+
 .navbar-nav {
     display: flex;
     flex-direction: row;
@@ -63,10 +67,13 @@ li {
 
 .list-group {
     background-color: white;
+    width: 75%;
 }
 
 .list-group-item {
-    color: gray;
+    color: #969595;
+    font-size: 25px;
+    text-align: left;
 }
 
 .lesson {
@@ -84,7 +91,7 @@ li {
 
 .table {
     color: darkslategray;
-    width: 70%;
+    width: 50%;
     margin: auto;
 }
 
@@ -109,8 +116,29 @@ li {
 
 .lp {
     text-align: left;
+    font-family: Georgia, serif;
 }
 
 .homeblurb {
     width: 60%;
+}
+
+.title {
+    font-size: 50px;
+}
+
+.ctr {
+    text-align: center;
+}
+
+.back {
+    color: white;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+.backarr {
+    width: 1%;
+    height: 1%;
+    margin-top: 1%;
 }
