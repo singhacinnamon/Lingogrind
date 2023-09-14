@@ -1,29 +1,36 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import HomePage from "./HomePage";
-import { BrowserRouter as Router, Routes, Route, Link, Redirect } from "react-router-dom";
-import LessonList from "./LessonList";
 import Es from "./Es";
 import Th from "./Th";
 import About from "./About";
-import EsGreetingsGratitudesEtc from "./lessons/EsGreetingsGratitudesEtc"
+import LessonComponentLoader from './LessonComponentLoader';
+import EsGreetingsGratitudesEtc from "./lessons/EsGreetingsGratitudesEtc";
 
-export default class App extends Component {
-    constructor(props) {
-        super(props);
-    }
+function App() {
+    const [data, setData] = useState([]);
 
-    render() {
-        return (
+    useEffect(() => {
+        fetch("/api/get-lsn?lang=es")
+        .then((response) => response.json())
+        .then((responseData) => {
+            setData(responseData);
+        })
+        .catch((error) => {
+            console.error('Error fetching data:', error);
+        });
+    }, []);
+
+    return (
         <>
         <Router>
             <div className="container-fluid" id="nav-container">
                 <ul className="navbar-nav">
-                        <li className="lefty">
-                            <Link to="/">
-                                <h1 id="logo">Lingogrind</h1>
-                            </Link>
-                        </li>
+                    <li className="lefty">
+                        <Link to="/">
+                            <h1 id="logo">Lingogrind</h1>
+                        </Link>
+                    </li>
                     <li className="righty">
                         <Link to="/about">
                             <h5>About</h5>
@@ -31,25 +38,29 @@ export default class App extends Component {
                     </li>
                     <li className="righty">
                         <Link>
-                            <h5>Log In/Sign Up</h5>
+                            <h5>Log In</h5>
                         </Link>
                     </li>
                 </ul>
             </div>
             <div className="container-fluid">
                 <Routes>
-                    <Route index element={ <HomePage /> } />
-                    <Route exact path="/es" element={ <Es /> } />
-                    <Route exact path="/th" element={ <Th /> } />
-                    <Route exact path="/about" element={ <About /> } />
-                    <Route exact path="/EsGreetingsGratitudesEtc" element={ <EsGreetingsGratitudesEtc /> } />
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/es" element={<Es />} />
+                    <Route path="/th" element={<Th />} />
+                    <Route path="/about" element={<About />} />
+                    { data.map( (lsn) =>
+                <Route
+                key={lsn.file}
+                path={`/${lsn.file}`}
+                element={<LessonComponentLoader componentName={lsn.file} />}
+              />
+            )}
                 </Routes>
             </div>
         </Router>
         </>
-        );
-    }
+    );
 }
 
-const appDiv = document.getElementById("app");
-render(<App />, appDiv);
+export default App;

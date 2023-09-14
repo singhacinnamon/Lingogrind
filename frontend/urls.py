@@ -6,5 +6,6 @@ urlpatterns = [
     path('about/', index),
     path('th/', index),
     path('es/', index),
-    path('EsGreetingsGratitudesEtc/', index)
+    path('EsGreetingsGratitudesEtc/', index),
+    path('EsSubjectPronouns/', index)
     ]
