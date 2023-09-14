@@ -4,14 +4,17 @@ import { Link } from "react-router-dom";
 function EsGreetingsGratitudesEtc(props) {
     return (
         <>
-        <Link to="/es">
-            <div class='flex'>
-                <img src='../../../static/images/back.png' className='backarr'></img>
+        <div className='flex backdiv'>
+            <Link to="/es" className='backarr'>
+                <img src='../../../static/images/back.png' className='backarr' alt='' />
+            </Link>
+            <Link to="/es" className='backarr'>
                 <h5 className='back'>Lessons</h5>
-            </div>
-        </Link>
+                </Link>
+
+        </div>
         <h1 className='title ctr'>Greetings, Gratitudes, etc.</h1>
-        <div className = 'lesson rounded-lsn'>
+        <div className = 'lesson'>
 
             <p className='lp'>  Hello, thank you, sorry, excuse me! These words and phrases are difficult to label as a group, and yet they seem to belong together.
                 They are fundamental elements of language, and often convey feelings and intentions more than distinct meanings. In any language, 

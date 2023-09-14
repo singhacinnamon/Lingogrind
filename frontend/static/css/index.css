@@ -6,6 +6,10 @@ h1 {
     color: #f7e557;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 p {
     font-size: 20px;
     width: 70%;
@@ -30,18 +34,26 @@ li {
     margin: 0;
   }
 
+  .navbar-nav .container-fluid {
+    display: flex;
+  }
+
   .navbar-nav .lefty {
     margin-right: auto; /* Push this item to the far left */
   }
   
-  .navbar-nav .righty {
+  .navbar-nav .righty a {
     margin-left: auto; /* Push these items to the far right */
     color: white;
   }
 
+  .navbar-nav .righty {
+    margin-right: 1%;
+
+  }
+
   #nav-container {
     background-color: #0482bf;
-    margin:0;
   }
 
 #logo {
@@ -87,6 +99,7 @@ li {
     margin-right: 5%;
     margin-bottom: 3%;
     padding: 2%;
+    border-radius: 5rem;
 }
 
 .table {
@@ -105,10 +118,6 @@ li {
     text-align: center;
     margin-top: 1%;
 }
-
-.rounded-lsn {
-    border-radius: 5rem;
- }
 
 .quote {
     font-style: italic;
@@ -133,12 +142,19 @@ li {
 
 .back {
     color: white;
-    margin-left: 1%;
-    margin-top: 1%;
+    margin-left: 3%;
 }
 
 .backarr {
-    width: 1%;
-    height: 1%;
     margin-top: 1%;
+}
+
+.backarr img {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}
+
+.backdiv {
+    width: auto;
 }
