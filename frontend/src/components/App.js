@@ -5,6 +5,7 @@ import Es from "./Es";
 import Th from "./Th";
 import About from "./About";
 import LessonComponentLoader from './LessonComponentLoader';
+import Login from './Login'
 import EsGreetingsGratitudesEtc from "./lessons/EsGreetingsGratitudesEtc";
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
                         </Link>
                     </li>
                     <li className="righty">
-                        <Link>
+                        <Link to="/login">
                             <h5>Log In</h5>
                         </Link>
                     </li>
@@ -49,6 +50,7 @@ function App() {
                     <Route path="/es" element={<Es />} />
                     <Route path="/th" element={<Th />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/login" element={<Login />} />
                     { data.map( (lsn) =>
                 <Route
                 key={lsn.file}

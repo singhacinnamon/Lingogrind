@@ -5,6 +5,15 @@ body {
 h1 {
     color: #f7e557;
 }
+/* 
+h5 {
+    color: white;
+} */
+
+input {
+    border-radius: 5px;
+    margin-left: 5px;
+}
 
 a:hover {
     text-decoration: none;
@@ -117,6 +126,15 @@ li {
     margin-bottom: 3%;
     padding: 2%;
     border-radius: 5rem;
+}
+
+.login-bubble {
+    background-color: white;
+    color: darkslategray;
+    text-align: center;
+    margin: auto;
+    border-radius: 5rem;
+    padding: 2%;
 }
 
 .table {
