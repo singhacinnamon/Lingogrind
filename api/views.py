@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import JsonResponse
 from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.contrib.auth import authenticate, login
 from .serializers import LessonSerializer, CreateLessonSerializer
 from .models import Lesson
 
@@ -10,6 +12,21 @@ from .models import Lesson
 # Create your views here.
 def home(request):
     return HttpResponse("Hello")
+
+def ling_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        print(f"Received username: {username}, password: {password}")
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return JsonResponse({'message': 'Login successful'})
+        else:
+            return JsonResponse({'message': 'Login failed'}, status=401)
 
 class LessonView(generics.CreateAPIView):
     queryset = Lesson.objects.all()

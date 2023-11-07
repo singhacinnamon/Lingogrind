@@ -29,6 +29,12 @@ li {
     display: inline;
 }
 
+.w5 {
+    color: white;
+}
+.db5 {
+    color: #0072af;
+}
 .flex {
     display: flex;
 }
@@ -77,7 +83,7 @@ li {
   }
 
   #nav-container {
-    background-color: #0482bf;
+    background-color: #0072af;
   }
 
 #logo {
@@ -135,6 +141,11 @@ li {
     margin: auto;
     border-radius: 5rem;
     padding: 2%;
+}
+
+.btn-db {
+    background-color: #0072af;
+    color: white;
 }
 
 .table {
