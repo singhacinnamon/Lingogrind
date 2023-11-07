@@ -57,13 +57,14 @@ li {
     margin-right: auto; /* Push this item to the far left */
   }
   
-  .navbar-nav .righty a {
+  .navbar-nav .righty a{
     margin-left: auto; /* Push these items to the far right */
     color: white;
   }
 
   .navbar-nav .righty {
     margin-right: 2%;
+    color: white;
 
   }
 

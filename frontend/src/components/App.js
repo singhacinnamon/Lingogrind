@@ -6,12 +6,14 @@ import Th from "./Th";
 import About from "./About";
 import LessonComponentLoader from './LessonComponentLoader';
 import Login from './Login'
+import UserOrLogin from './UserOrLogin';
 import EsGreetingsGratitudesEtc from "./lessons/EsGreetingsGratitudesEtc";
 
 function App() {
     const [data, setData] = useState([]);
+    const [username, setUsername] = useState('');
 
-    useEffect(() => {
+    const setLsnRoutes = () => {
         fetch("/api/get-lsn?lang=es")
         .then((response) => response.json())
         .then((responseData) => {
@@ -20,7 +22,23 @@ function App() {
         .catch((error) => {
             console.error('Error fetching data:', error);
         });
-    }, []);
+    }
+
+    const get_user = async () => {
+        const response = await fetch("/api/get_user/", {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application.json',
+            },
+        });
+        if(response.ok) {
+            const data = await response.json();
+            setUsername(data.username);
+        }
+    };
+
+    useEffect(setLsnRoutes, []);
+    useEffect(get_user, []);
 
     return (
         <>
@@ -38,9 +56,7 @@ function App() {
                         </Link>
                     </li>
                     <li className="righty">
-                        <Link to="/login">
-                            <h5>Log In</h5>
-                        </Link>
+                        <UserOrLogin username={ username } />
                     </li>
                 </ul>
             </div>

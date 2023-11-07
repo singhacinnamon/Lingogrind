@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Login() {
+function Login(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const csrfToken = window.CSRF_TOKEN;
@@ -36,12 +36,12 @@ function Login() {
                 <div className="form-group">
                     <label htmlFor="username"><h5 className="w5">Username: </h5></label>
                     <br/>
-                    <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                    <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="password"><h5 className="w5">Password: </h5></label>
                     <br/>
-                    <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <button type="button" className="btn btn-db" onClick={ handleLogin }><h5 className="w5">Log In</h5></button>
             </form>

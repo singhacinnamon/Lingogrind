@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
@@ -15,10 +16,11 @@ def home(request):
 
 def ling_login(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        username = json.loads(request.body)['username']
+        password = json.loads(request.body)['password']
 
         print(f"Received username: {username}, password: {password}")
+        print('Raw Data: "%s"' % request.body)
 
         user = authenticate(request, username=username, password=password)
 
@@ -27,6 +29,9 @@ def ling_login(request):
             return JsonResponse({'message': 'Login successful'})
         else:
             return JsonResponse({'message': 'Login failed'}, status=401)
+        
+def get_user(request):
+    return JsonResponse({'username': request.user.username})
 
 class LessonView(generics.CreateAPIView):
     queryset = Lesson.objects.all()
