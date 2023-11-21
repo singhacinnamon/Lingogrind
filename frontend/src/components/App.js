@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import HomePage from "./HomePage";
 import Es from "./Es";
@@ -7,14 +7,13 @@ import About from "./About";
 import LessonComponentLoader from './LessonComponentLoader';
 import Login from './Login'
 import UserOrLogin from './UserOrLogin';
-import EsGreetingsGratitudesEtc from "./lessons/EsGreetingsGratitudesEtc";
 
 function App() {
     const [data, setData] = useState([]);
     const [username, setUsername] = useState('');
 
-    const setLsnRoutes = () => {
-        fetch("/api/get-lsn?lang=es")
+    const setLsnRoutes = async () => {
+        await fetch("/api/get-lsn?lang=es")
         .then((response) => response.json())
         .then((responseData) => {
             setData(responseData);

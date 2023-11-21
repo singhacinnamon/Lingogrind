@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Login(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    const [failed, setFailed] = useState(false);
     const csrfToken = window.CSRF_TOKEN;
 
     const handleLogin = async () => {
@@ -22,8 +25,11 @@ function Login(props) {
 
         if (response.ok) {
             console.log("successful login!");
+            setFailed(false);
+            navigate(-1);
         } else {
             console.log("unsuccessful login :(");
+            setFailed(true);
         }
     }
     
@@ -43,6 +49,7 @@ function Login(props) {
                     <br/>
                     <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
+                { failed ? <><label className="error-text">Username or password was incorrect. Please try again.</label><br/></>: <></>}
                 <button type="button" className="btn btn-db" onClick={ handleLogin }><h5 className="w5">Log In</h5></button>
             </form>
         </center>
