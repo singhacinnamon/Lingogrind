@@ -66,10 +66,17 @@ li {
 
   .dropdown:hover>.dropdown-menu {
     display: block;
+    position: absolute;
+    border-radius: 0;
   }
   
   .dropdown>.dropdown-toggle:active {
       pointer-events: none;
+  }
+  .logoutBtn {
+    background-color: transparent;
+    border: none;
+    margin: inherit;
   }
 
   .right-caret::after {
@@ -86,6 +93,8 @@ li {
 
   .dropdown-menu {
     background-color: #0072af;
+    margin-top: 0;
+    padding: 0;
   }
 
   .dropdown-menu > li:hover {
@@ -114,6 +123,7 @@ li {
 
   #nav-container {
     background-color: #0072af;
+    position: fixed;
   }
 
 #logo {

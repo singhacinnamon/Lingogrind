@@ -15,7 +15,7 @@ function UserOrLogin({ globUser, setGlobUser }) {
             <div className="dropdown">
                 <button className="btn dropdown-toggle right-caret position-static" id="logoutDropdown" type="button" aria-expanded="false"><h5>Hi, { globUser }</h5></button>
                 <ul className="dropdown-menu">
-                    <li className="dropdown-item"><Link to="/"><button onClick={logOut}><h5 className="w5">Log Out</h5></button></Link></li>
+                    <li className="dropdown-item"><Link to="/" onClick={logOut}><h5 className="w5">Log Out</h5></Link></li>
                 </ul>
                 
             </div>
