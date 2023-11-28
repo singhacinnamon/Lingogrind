@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function UserOrLogin({ username }) {
+function UserOrLogin({ globUser, setGlobUser }) {
 
     const logOut = () => {
         fetch("/api/ling_logout");
+        setGlobUser('')
     }
 
-    const loggedIn = !username == '';
+    const loggedIn = !globUser == '';
     return (
         <>
         { loggedIn ? (
             <div className="dropdown">
-                <button className="btn dropdown-toggle right-caret position-static" id="logoutDropdown" type="button" aria-expanded="false"><h5>Hi, { username }</h5></button>
+                <button className="btn dropdown-toggle right-caret position-static" id="logoutDropdown" type="button" aria-expanded="false"><h5>Hi, { globUser }</h5></button>
                 <ul className="dropdown-menu">
                     <li className="dropdown-item"><Link to="/"><button onClick={logOut}><h5 className="w5">Log Out</h5></button></Link></li>
                 </ul>

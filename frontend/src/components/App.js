@@ -5,12 +5,13 @@ import Es from "./Es";
 import Th from "./Th";
 import About from "./About";
 import LessonComponentLoader from './LessonComponentLoader';
-import Login from './Login'
+import Login from './Login';
 import UserOrLogin from './UserOrLogin';
+
 
 function App() {
     const [data, setData] = useState([]);
-    const [username, setUsername] = useState('');
+    const [globUser, setGlobUser] = useState('');
 
     const setLsnRoutes = async () => {
         await fetch("/api/get-lsn?lang=es")
@@ -32,9 +33,10 @@ function App() {
         });
         if(response.ok) {
             const data = await response.json();
-            setUsername(data.username);
+            setGlobUser(data.username);
         }
     };
+
 
     useEffect(setLsnRoutes, []);
     useEffect(get_user, []);
@@ -55,7 +57,7 @@ function App() {
                         </Link>
                     </li>
                     <li className="righty">
-                        <UserOrLogin username={ username } />
+                        <UserOrLogin globUser={ globUser } setGlobUser={ setGlobUser } />
                     </li>
                 </ul>
             </div>
@@ -65,7 +67,7 @@ function App() {
                     <Route path="/es" element={<Es />} />
                     <Route path="/th" element={<Th />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route path="/login" element={<Login setGlobUser={ setGlobUser }/>} />
                     { data.map( (lsn) =>
                 <Route
                 key={lsn.file}

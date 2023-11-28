@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Login(props) {
+function Login({ setGlobUser  }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -24,11 +24,10 @@ function Login(props) {
         });
 
         if (response.ok) {
-            console.log("successful login!");
             setFailed(false);
+            setGlobUser(username)
             navigate(-1);
         } else {
-            console.log("unsuccessful login :(");
             setFailed(true);
         }
     }
