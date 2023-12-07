@@ -6,6 +6,7 @@ from rest_framework import generics, status, permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.utils.decorators import method_decorator
 from .serializers import LessonSerializer, CreateLessonSerializer
@@ -35,6 +36,22 @@ def ling_login(request):
         print('Raw Data: "%s"' % request.body)
 
         user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return JsonResponse({'message': 'Login successful'}, status=status.HTTP_200_OK)
+        else:
+            return JsonResponse({'message': 'Login failed'}, status=status.HTTP_401_UNAUTHORIZED)
+        
+def ling_reg(request):
+    if request.method == 'POST':
+        username = json.loads(request.body)['username'] #json.loads converts request body to a python dict
+        password = json.loads(request.body)['password']
+
+        print(f"Received username: {username}, password: {password}")
+        print('Raw Data: "%s"' % request.body)
+
+        user = User.objects.create_user(username=username, password=password)
 
         if user is not None:
             login(request, user)

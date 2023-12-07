@@ -123,7 +123,8 @@ li {
 
   #nav-container {
     background-color: #0072af;
-    position: fixed;
+    position: sticky;
+    margin-bottom: 30px;
   }
 
 #logo {
@@ -201,10 +202,14 @@ li {
 
 .hometitle {
     margin: auto;
+    font-size: 50px;
     text-align: center;
     margin-top: 1%;
+    margin-bottom: 2%;
 }
-
+.yellow {
+    color: #f7e557;
+}
 .quote {
     font-style: italic;
 }

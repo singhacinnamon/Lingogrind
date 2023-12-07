@@ -5,6 +5,7 @@ urlpatterns = [
     path('', index),
     path('about/', index),
     path('login/', index),
+    path('reg/', index),
     path('th/', index),
     path('es/', index),
     path('EsGreetingsGratitudesEtc/', index),

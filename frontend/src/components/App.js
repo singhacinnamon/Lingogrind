@@ -7,6 +7,7 @@ import About from "./About";
 import LessonComponentLoader from './LessonComponentLoader';
 import Login from './Login';
 import UserOrLogin from './UserOrLogin';
+import Register from './Register'
 
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
                     <Route path="/th" element={<Th />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/login" element={<Login setGlobUser={ setGlobUser }/>} />
+                    <Route path="/reg" element={<Register setGlobUser={ setGlobUser }/>} />
                     { data.map( (lsn) =>
                 <Route
                 key={lsn.file}
