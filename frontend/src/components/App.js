@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import HomePage from "./HomePage";
 import Es from "./Es";
 import Th from "./Th";
 import About from "./About";
 import LessonComponentLoader from './LessonComponentLoader';
-import Login from './Login'
-import EsGreetingsGratitudesEtc from "./lessons/EsGreetingsGratitudesEtc";
+import Login from './Login';
+import UserOrLogin from './UserOrLogin';
+import Register from './Register'
+
 
 function App() {
     const [data, setData] = useState([]);
+    const [globUser, setGlobUser] = useState('');
 
-    useEffect(() => {
-        fetch("/api/get-lsn?lang=es")
+    const setLsnRoutes = async () => {
+        await fetch("/api/get-lsn?lang=es")
         .then((response) => response.json())
         .then((responseData) => {
             setData(responseData);
@@ -20,7 +23,24 @@ function App() {
         .catch((error) => {
             console.error('Error fetching data:', error);
         });
-    }, []);
+    }
+
+    const get_user = async () => {
+        const response = await fetch("/api/get_user/", {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application.json',
+            },
+        });
+        if(response.ok) {
+            const data = await response.json();
+            setGlobUser(data.username);
+        }
+    };
+
+
+    useEffect(setLsnRoutes, []);
+    useEffect(get_user, []);
 
     return (
         <>
@@ -38,9 +58,7 @@ function App() {
                         </Link>
                     </li>
                     <li className="righty">
-                        <Link to="/login">
-                            <h5>Log In</h5>
-                        </Link>
+                        <UserOrLogin globUser={ globUser } setGlobUser={ setGlobUser } />
                     </li>
                 </ul>
             </div>
@@ -50,7 +68,8 @@ function App() {
                     <Route path="/es" element={<Es />} />
                     <Route path="/th" element={<Th />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route path="/login" element={<Login setGlobUser={ setGlobUser }/>} />
+                    <Route path="/reg" element={<Register setGlobUser={ setGlobUser }/>} />
                     { data.map( (lsn) =>
                 <Route
                 key={lsn.file}
