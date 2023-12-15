@@ -9,7 +9,7 @@ export default class HomePage extends Component {
     render() {
         return (
             <>
-            <div class="jumbotron text-center">
+            <div className="jumbotron text-center">
                 <center>
                     <h1 class="hometitle">Lingogrind</h1>
                     <p>

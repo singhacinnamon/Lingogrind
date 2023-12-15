@@ -21,8 +21,12 @@ p {
     margin: auto;
 }
 
-li {
+/* li {
     display: inline;
+} */
+
+.horizontal {
+    display: inline-block;
 }
 
 .w5 {
@@ -219,12 +223,35 @@ li {
     font-family: Georgia, serif;
 }
 
-.homeblurb {
-    width: 60%;
+.left-align {
+    text-align: left;
+}
+
+.blurb {
+    width: 70%;
+}
+
+half-wide {
+    width: 50%;
+}
+
+.alongside {
+    margin: auto;
 }
 
 .title {
     font-size: 50px;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 45%;
+    height: auto;
+    margin: auto;
+}
+
+.right-indent {
+    margin-right: 20%;
 }
 
 .ctr {

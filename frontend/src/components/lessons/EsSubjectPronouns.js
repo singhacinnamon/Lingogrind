@@ -64,7 +64,7 @@ function EsSubjectPronouns(props) {
                 </tr>
             </table><br/>
 
-            <p className="lp">Please note that all of these pronouns are <i>subject</i> pronouns, they are used to indicate who/What
+            <p className="lp">Please note that all of these pronouns are <i>subject</i> pronouns, they are used to indicate who/what
             is performing the action in a sentence. This lesson is somewhat of a stepping stone. In the next lesson we will
             learn some basic verbs and start putting simple sentences together. BUT BEFORE YOU GO there are a couple quirks I need to explain. </p><br/>
 
